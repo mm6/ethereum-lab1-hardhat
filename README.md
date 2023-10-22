@@ -25,7 +25,7 @@ and the student will modify an existing contract.
 The contracts themselves will be studied in detail in class. For
 now, we want to set up our system and get some experience deploying
 and interacting with the Solidity code and the environment provided
-by client side Hardhat and server side Hardhat network.
+by client side Hardhat and the server side Hardhat network.
 
 In class, we will delve into the specifics of the contracts. However,
 for the time being, our goal is to establish our system and gain
@@ -37,31 +37,31 @@ This lab exercise is based partly on the Hardhat tutorial [found here.](https://
 
 ## Part 1. Installations
 
-1) If you are a python programmer, you may want to deactivate your virtual
+1. If you are a python programmer, you may want to deactivate your virtual
 environment during this project. You may reactivate it later when using
 python. Use the following command:
 ```
 (base) conda deactivate
 
 ```
-2) Download and install Google Chrome.
-3) Install the Metamask extension for Google Chrome.
+2. Download and install Google Chrome.
+3. Install the Metamask extension for Google Chrome.
    See: https://metamask.io/.
-4) Install git.
+4. Install git.
    See https://git-scm.com/downloads.
-5) Download and install a node version manager (nvm).
+5. Download and install a node version manager (nvm).
 
    **On Windows** [There is guidance here on installing nvm-windows, node.js, and the node package manager npm.](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows)
 
    **On a MAC** [First, install homebrew.](https://brew.sh/) [Second, use homebrew to install nvm.](https://tecadmin.net/install-nvm-macos-with-homebrew/)
 
-6) This command should show the versions of Node.js available:
+6. This command should show the versions of Node.js available:
 
 ```
 nvm ls-remote
 ```
 
-7) We want to use Node.js version 20.8.1. Use the following command:
+7. We want to use Node.js version 20.8.1. Use the following command:
 
 ```
 nvm install 20
@@ -70,32 +70,44 @@ Now using node v20.8.1 (npm v10.2.1)
 
 ```
 
-8) You should now be able to run Node and look at its version:
+8. You should now be able to run Node.js and look at its version:
 
 ```
 node --version
 v20.8.1
 ```
 
-9) To install Hardhat create an empty directory and run the command:
+9. Create a new project directory named HardhatLab1.
+
+```
+mkdir HardhatLab1
+
+```
+10. Change directory into the new directory.
+
+```
+cd HardhatLab1
+```
+Build a package.json file (holding important information about this project) by running the command:
 
 ```
 npm init     hit return and take the defaults provided
 
 ```
 
-10) Now, within the new directory, install hardhat:
+11. Now, within the HardhatLab1 directory, install hardhat:
 
 ```
 npm install --save-dev hardhat
 
 ```
-11) Next, within the directory where Hardhat is installed:
+12. Next, within the HardhatLab1 directory, initialize Hardhat with the Node Package Execute (npx) command:
 
 ```
 npx hardhat init
 ```
-12) We want to create an empty hardhat.config.js. In addition, you may be prompted to run
+
+13. The npx command creates a hardhat.config.js. In addition, you may be prompted to run
 the following:
 
 ```
@@ -103,7 +115,7 @@ npm install --save-dev "hardhat@^2.18.2"
 
 ```
 
-Install in the project directory install the hardhat toolbox:
+14. Within the project directory, install the Hardhat toolbox:
 
 ```
 npm install --save-dev @nomicfoundation/hardhat-toolbox
@@ -186,7 +198,9 @@ contract Token {
     }
 }
 ```
-Compile the code with the following command. We do this in the directory just above contracts.
+15. Using Node Package Execute, compile the code with the following command. We do this in the
+directory just above the contracts directory.
+
 Note that this command will download the appropriate compiler.
 
 ```
@@ -194,7 +208,7 @@ npx hardhat compile
 
 ```
 
-Create a new directory named test and place the following Javascript code in test/Token.js:
+16. Create a new directory named test and place the following Javascript code in the test directory in a file named Token.js.
 ```
 const { expect } = require("chai");
 
@@ -209,7 +223,7 @@ describe("Token contract", function () {
   });
 });
 ```
-In the project directory, to run the test code, enter the following:
+In the project directory, run the test code. Enter the following:
 
 ```
 npx hardhat test
