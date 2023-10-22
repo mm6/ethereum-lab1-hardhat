@@ -33,9 +33,6 @@ some practical experience in deploying and interacting with the
 Solidity code. We’ll be using the Hardhat environment on both the
 client and server sides.
 
-It is important that you take your time and understand what is going
-on in these exercises. Start early and leave some time for debugging.
-
 This lab exercise is based partly on the Hardhat tutorial [found here.](https://hardhat.org/tutorial)
 
 ## Part 1. Installations
