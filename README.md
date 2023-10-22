@@ -123,7 +123,8 @@ npm install --save-dev "hardhat@^2.18.2"
 npm install --save-dev @nomicfoundation/hardhat-toolbox
 
 ```
-Edit your hardhat.config.js file and include this line at the top:
+We need access to that toolbox. Edit your hardhat.config.js file and include this line
+at the top:
 
 ```
 require("@nomicfoundation/hardhat-toolbox");
