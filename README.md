@@ -213,18 +213,32 @@ npx hardhat compile
 
 18. Create a new directory named test and place the following Javascript code in the test directory in a file named Token.js.
 ```
+// Token.js is stored in the test subdirectory of the Hardhat project.
+// Mocha and chai are often used together for unit testing.
+// Mocha provides structure for organizing tests. For example, it provides "it" 
+// and "describe" functions.
+// Chai is an assertion library. It provides the "expect" function below.
+
+// import the chai library. We need the function named 'expect'.
 const { expect } = require("chai");
 
 describe("Token contract", function () {
-  it("Deployment should assign the total supply of tokens to the owner", async function () {
+  // The it function defines a single test.
+  // It takes two arguments - a string description and a callback function containing the code for the test.
+  // The name "it" is used for readability.
+  // As in, it had better assign the total supply...
+  it("Deployment had better assign the total supply of tokens to the owner", async function () {
+    // Get the address of the first signer and assign to the constant owner.
     const [owner] = await ethers.getSigners();
-
+    // deploy the contract named Token and set hardhatToken to refer to the deployed code.
     const hardhatToken = await ethers.deployContract("Token");
-
+    // Get the balance of the owner.
     const ownerBalance = await hardhatToken.balanceOf(owner.address);
+    // Get the total supply. We expect that to be the same value as the owner's balance.
     expect(await hardhatToken.totalSupply()).to.equal(ownerBalance);
   });
 });
+
 ```
 19. In the project directory, run the test code. Enter the following:
 
@@ -232,7 +246,7 @@ describe("Token contract", function () {
 npx hardhat test
 ```
 
-20. 
+20.
 
 
 ```
