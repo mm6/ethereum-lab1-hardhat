@@ -123,14 +123,14 @@ npm install --save-dev "hardhat@^2.18.2"
 npm install --save-dev @nomicfoundation/hardhat-toolbox
 
 ```
-We need access to that toolbox. Edit your hardhat.config.js file and include this line
+15. We need access to that toolbox. Edit your hardhat.config.js file and include this line
 at the top:
 
 ```
 require("@nomicfoundation/hardhat-toolbox");
 ```
 
-Create a new subdirectory named contracts. Within contracts, create the following smart
+16. Create a new subdirectory named contracts. Within contracts, create the following smart
 contract named Token.sol:
 
 ```
@@ -201,7 +201,7 @@ contract Token {
     }
 }
 ```
-15. Using Node Package Execute (npx), compile the code with the following command. We do this in the
+17. Using Node Package Execute (npx), compile the code with the following command. We do this in the
 directory just above the contracts directory.
 
 Note that this command will download the appropriate compiler.
@@ -211,7 +211,7 @@ npx hardhat compile
 
 ```
 
-16. Create a new directory named test and place the following Javascript code in the test directory in a file named Token.js.
+18. Create a new directory named test and place the following Javascript code in the test directory in a file named Token.js.
 ```
 const { expect } = require("chai");
 
@@ -226,13 +226,13 @@ describe("Token contract", function () {
   });
 });
 ```
-In the project directory, run the test code. Enter the following:
+19. In the project directory, run the test code. Enter the following:
 
 ```
 npx hardhat test
 ```
 
-
+20. 
 
 
 ```
