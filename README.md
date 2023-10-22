@@ -201,7 +201,7 @@ contract Token {
     }
 }
 ```
-15. Using Node Package Execute, compile the code with the following command. We do this in the
+15. Using Node Package Execute (npx), compile the code with the following command. We do this in the
 directory just above the contracts directory.
 
 Note that this command will download the appropriate compiler.
