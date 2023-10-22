@@ -109,8 +109,8 @@ npx hardhat init
 
 You will need to select "Create an empty hardhat.config.js".
 
-13. The npx command creates a hardhat.config.js. In addition, you may be prompted to run
-the following:
+13. The npx command creates a hardhat.config.js. In addition, if you are asked to do so,
+run the following npm command.
 
 ```
 npm install --save-dev "hardhat@^2.18.2"
