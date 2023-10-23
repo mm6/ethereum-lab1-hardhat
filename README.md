@@ -13,6 +13,13 @@
 development environment (using Node.js and Hardhat) and deploy smart
 contracts that are written in the Solidity programming language.
 
+Our main objective is to get familiar with some of the tooling provided by
+Hardhat. We will examine how we can deploy, interact with, and debug smart
+contracts.
+
+We will learn that normal accounts as well as contracts may have a token
+balance and an eth balance.
+
 We will experiment with running "transactions". Transactions cause state
 changes, cost ether (for using gas), and may only return responses at a later time.
 
@@ -27,12 +34,6 @@ The contracts themselves will be studied in detail in class. For
 now, we want to set up our system and get some experience deploying
 and interacting with the Solidity code and the environment provided
 by client side Hardhat and the server side Hardhat network.
-
-In class, we will delve into the specifics of the contracts. However,
-for the time being, our goal is to establish our system and gain
-some practical experience in deploying and interacting with the
-Solidity code. We’ll be using the Hardhat environment on both the
-client and server sides.
 
 This lab exercise is based partly on the Hardhat tutorial [found here.](https://hardhat.org/tutorial)
 
@@ -378,7 +379,7 @@ describe("Token contract", function () {
 });
 
 ```
-***Debugging Exercises***
+## Part 2. Debugging Exercises
 
 In this set of exercises, we spend some time making intentional errors in our smart contract to
 see how the errors are handled by the testing code. In each case, you will edit the contract,
@@ -425,7 +426,7 @@ console.log("Transfer executed from %s to %s %s tokens",msg.sender,to,amount);
 ```
 What result do we get when running the tests?
 
-***Using the Interactive Console***
+## Part 3. Using the Interactive Console
 
 1) Hardhat provides an interactive console where we can deploy and interact with a contract. In
 the HardhatLab1 directory, enter the following two commands:
@@ -495,4 +496,5 @@ const contractEthBalance = await ethers.provider.getBalance(hardhatToken.target)
 contractEthBalance
 
 ```
-So, we learned that contracts as well as accounts can have balances of eth as well as in tokens.
+So, we learned the fundamental idea that contracts as well as accounts can have
+balances of eth as well as in tokens.
