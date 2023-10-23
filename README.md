@@ -21,7 +21,8 @@ We will learn that normal accounts as well as contracts may have a token
 balance and an eth balance.
 
 We will experiment with running "transactions". Transactions cause state
-changes, cost ether (for using gas), and may only return responses at a later time.
+changes, cost ether (for using gas), and may only return responses at a
+later time.
 
 We will also run "calls". Calls do not change state on the blockchain and
 cost nothing to run (no gas). They are processed immediately and provide
@@ -36,6 +37,8 @@ and interacting with the Solidity code and the environment provided
 by client side Hardhat and the server side Hardhat network.
 
 This lab exercise is based partly on the Hardhat tutorial [found here.](https://hardhat.org/tutorial)
+
+The deliverable is a single well labelled pdf file with answers for E.1. through E.11. 
 
 ## Part 1. Installations
 
@@ -387,26 +390,26 @@ save it, and compile it. Each of these problems assumes that you start fresh wit
 as shown above. You need to include clear labels for each answer and place all of the answers
 on the single .pdf file.
 
-1) Modify the contract's constructor so that it breaks the "Should show the right owner test".
+E.1. Modify the contract's constructor so that it breaks the "Should show the right owner test".
 Do this by setting the owner's address to 0 at the end of the constructor. Use address(0) in the
 assignment statement.
 
-2) Currently, the contract has 1000000 tokens. Set this value to 10 so that it breaks the
+E.2. Currently, the contract has 1000000 tokens. Set this value to 10 so that it breaks the
 "Should transfer between accounts test".
 
-3) Comment out the require statement in the transfer function. This should break the "Should fail if
+E.3. Comment out the require statement in the transfer function. This should break the "Should fail if
 sender doesn't have enough tokens" test.
 
-4) Introduce an error into the contract's balanceOf function. Instead of "return balances[account]", let's
+E.4. Introduce an error into the contract's balanceOf function. Instead of "return balances[account]", let's
 write "return balances[account] - 1". What result do we get when running the tests?
 
-5) Introduce a small error into the constructor. Instead of "balances[msg.sender] = totalSupply;", let's write "balances[msg.sender] = totalSupply + 1;". What result do we get when running the tests?
+E.5. Introduce a small error into the constructor. Instead of "balances[msg.sender] = totalSupply;", let's write "balances[msg.sender] = totalSupply + 1;". What result do we get when running the tests?
 
 The next two problems ask that you to modify the contract code so that messages are displayed during
 the execution of the contract. Again, each of these problems assumes that you start fresh with the contract
 as shown above.
 
-6) During debugging, Hardhat allows the developer to display log messages from within the contract code.
+E.6. During debugging, Hardhat allows the developer to display log messages from within the contract code.
 These messages would be removed prior to deployment. Just below the pragma line, add the following import
 statement to your contract:
 ```
@@ -419,7 +422,7 @@ console.log("The constructor ran.");
 ```
 What result do we get when running the tests?
 
-7) At the end of your transfer function, add the line:
+E.7. At the end of your transfer function, add the line:
 
 ```
 console.log("Transfer executed from %s to %s %s tokens",msg.sender,to,amount);
@@ -498,3 +501,74 @@ contractEthBalance
 ```
 So, we learned the fundamental idea that contracts as well as accounts can have
 balances of eth as well as in tokens.
+
+## Part 4. Final Exercise
+
+In this exercise, we deploy and interact with a contract called Faucet.sol.
+
+```
+// Blockchain and SQL Fundamentals
+// Solidity code Faucet8.sol from Pg. 150 Mastering Ethereum
+// Modified for 5.0 and with comments.
+
+pragma solidity ^0.8.0;      // truffle.config can select the compiler version
+
+contract owned {
+    address payable owner;
+    // This constructor will be inherited.
+    // It takes no arguments and so the
+    // migration will be simple.
+    constructor() public {
+        owner = payable(msg.sender);
+    }
+    // A modifier is a precondition. If the precondition is not satisfied then
+    // the transaction will revert to its prior state.
+    modifier onlyOwner {
+        require (msg.sender == owner, "Only the creator of this contract may call this function");
+    _;
+    }
+}
+// Mortal inherits all features of the contract owned.
+// Mortals may die.
+contract mortal is owned {
+    // only the creator may destroy this contract
+    function destroy() public onlyOwner {
+        selfdestruct(owner);
+    }
+}
+// Single inheritance
+contract Faucet is mortal {
+    // Events end up in the receipt of the transaction.
+    // The events may be examined by the contracts caller.
+
+    event Withdrawal(address indexed to, uint amount);
+    event Deposit(address indexed from, uint amount);
+
+    // Withdraw by anyone as long as it's not greater
+    // than 0.1 ether and as long as the contract has ether
+    // to spare.
+    function withdraw(uint withdraw_amount) public {
+        require(withdraw_amount <= 0.1 ether);
+        require((address(this)).balance >= withdraw_amount,"Balance too small for this withdrawal");
+        payable(msg.sender).transfer(withdraw_amount);
+        emit Withdrawal(msg.sender, withdraw_amount);
+    }
+    // Pay ether to the contract. Generate an event
+    // upon deposit.
+    fallback() external payable {
+        emit Deposit(msg.sender, msg.value);
+    }
+}
+```
+E.8. Compile and deploy this contract using Hardhat. Show an interaction demonstrating that eth (not tokens)
+may be transferred to the contract. You will need to do some research to figure out what commands are
+needed to do the transfer. Paste a copy of this interaction onto your labelled single pdf file.
+
+E.9. On your well labelled single pdf file, show an interaction where the withdraw transaction succeeds. Provide
+some evidence on your well labelled single pdf.
+
+E.10. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of
+the first require statement. Provide some evidence on your well labelled single pdf.
+
+E.11. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of
+the second require statement. Provide some evidence on your well labelled single pdf.
