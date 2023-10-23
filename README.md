@@ -215,7 +215,7 @@ npx hardhat compile
 ```
 // Token.js is stored in the test subdirectory of the Hardhat project.
 // Mocha and chai are often used together for unit testing.
-// Mocha provides structure for organizing tests. For example, it provides "it" 
+// Mocha provides structure for organizing tests. For example, it provides "it"
 // and "describe" functions.
 // Chai is an assertion library. It provides the "expect" function below.
 
@@ -246,7 +246,12 @@ describe("Token contract", function () {
 npx hardhat test
 ```
 
-20.
+20. Replace the Token.js test file with the test file below and run
+
+```
+npx hardhat test
+```
+again.
 
 
 ```
@@ -372,3 +377,111 @@ describe("Token contract", function () {
 });
 
 ```
+***Debugging Exercises***
+
+1) Modify the contract's constructor so that it breaks the "Should show the right owner test".
+Do this by setting the owner's address to 0 at the end of the constructor. Use address(0) in the
+assignment statement.
+
+2) Currently, the contract has 1000000 tokens. Set this value to 10 so that it breaks the
+"Should transfer between accounts test".
+
+3) Comment out the require statement in the transfer function. This should break the "Should fail if
+sender doesn't have enough tokens" test.
+
+4) Introduce an error into the contract's balanceOf function. Instead of "return balances[account]"", let's
+write "return balances[account] - 1". What result do we get when running the tests?
+
+5) Introduce a small error into the constructor. Instead of "balances[msg.sender] = totalSupply;", let's write "balances[msg.sender] = totalSupply + 1;". What result do we get when running the tests?
+
+6) During debugging, Hardhat allows the developer to display log messages from within the contract code.
+These messages would be removed prior to deployment. Just below the pragma line, add the following import
+statement to your contract:
+```
+import "hardhat/console.sol";
+```
+Now, add this line at the end of your constructor:
+
+```
+console.log("The constructor ran.");
+```
+What result do we get when running the tests?
+
+7) At the end of your transfer function, add the line:
+
+```
+console.log("Transfer executed from %s to %s %s tokens",msg.sender,to,amount);
+```
+What result do we get when running the tests?
+
+***Using the Interactive Console***
+
+1) Hardhat provides an interactive console where we can deploy and interact with a contract. In
+the HardhatLab1 directory, enter the following two commands:
+
+```
+npx hardhat console
+>const hardhatToken = await ethers.deployContract("Token");   // deploy the contract returns undefined
+```
+The library "ethers" provides a set of functions and utilities that allow us to interact with
+the Ethereum blockchain. One of those functions is "deployContract". Here we have used it to
+deploy our token contract.
+
+2) Next, let's call the contract and ask for the total supply. The variable totalSupply is
+public and so we can call hardhatToken.totalSupply().
+```
+const supply = await hardhatToken.totalSupply();
+supply
+```
+3) Staying in the console (we can always exit with ctrl+d), use "ethers" to find account addresses
+that are available on the Hardhat network blockchain. Enter the following:
+
+```
+const [Alice, Bob, Carol, Donald] = await ethers.getSigners();
+```
+
+Examine the addresses with:
+```
+Alice.address
+Bob.address
+```
+And, the contract's address is also available in the target property of the contract reference:
+
+```
+hardhatToken.target
+```
+
+4) In the console, let's transfer some tokens from Alice to Bob. Note that the first address (Alice) is
+the default sender's address. Alice will have to pay for these transactions.
+
+```
+await hardhatToken.transfer(Bob.address,20);
+```
+5) In the console, let's transfer some tokens from Alice to the contract:
+```
+await hardhatToken.transfer(hardhatToken.target,2);
+```
+
+6) Now, let's find the token balances of ALice, Bob, and the contract:
+```
+aliceBalance = await hardhatToken.balanceOf(Alice.address)
+bobBalance = await hardhatToken.balanceOf(Bob.address)
+contractBalance = await hardhatToken.balanceOf(hardhatToken.target)
+```
+7) Note that Alice, Bob, and the contract all have some tokens. Alice should have 999,978.
+Bob should have 20 and the contract should have 2. But these are token balances. Perhaps
+we would like to know how much eth they have.
+
+This is not a call to the contract but is a call to Ethereum more generally.
+```
+const AliceEthBalance = await ethers.provider.getBalance(Alice.address);
+AliceEthBalance
+
+const BobEthBalance = await ethers.provider.getBalance(Bob.address);
+BobEthBalance
+
+const contractEthBalance = await ethers.provider.getBalance(hardhatToken.target);
+contractEthBalance
+
+```
+So, we learned that contracts as well as accounts can have balances of eth as well as in tokens.
