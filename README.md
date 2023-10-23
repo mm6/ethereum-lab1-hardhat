@@ -2,6 +2,7 @@
 ### Carnegie Mellon University MSCF
 ### Due: Wednesday, November 8, 2023 11:59 PM
 ### 10 Points
+### Deliverable: A single .pdf file named Lab1.pdf with clearly labelled answers.
 
 <!--
 #### Arjun Email: abrar@andrew.cmu.edu
@@ -379,6 +380,12 @@ describe("Token contract", function () {
 ```
 ***Debugging Exercises***
 
+In this set of exercises, we spend some time making intentional errors in our smart contract to
+see how the errors are handled by the testing code. In each case, you will edit the contract,
+save it, and compile it. Each of these problems assumes that you start fresh with the contract
+as shown above. You need to include clear labels for each answer and place all of the answers
+on the single .pdf file.
+
 1) Modify the contract's constructor so that it breaks the "Should show the right owner test".
 Do this by setting the owner's address to 0 at the end of the constructor. Use address(0) in the
 assignment statement.
@@ -389,10 +396,14 @@ assignment statement.
 3) Comment out the require statement in the transfer function. This should break the "Should fail if
 sender doesn't have enough tokens" test.
 
-4) Introduce an error into the contract's balanceOf function. Instead of "return balances[account]"", let's
+4) Introduce an error into the contract's balanceOf function. Instead of "return balances[account]", let's
 write "return balances[account] - 1". What result do we get when running the tests?
 
 5) Introduce a small error into the constructor. Instead of "balances[msg.sender] = totalSupply;", let's write "balances[msg.sender] = totalSupply + 1;". What result do we get when running the tests?
+
+The next two problems ask that you to modify the contract code so that messages are displayed during
+the execution of the contract. Again, each of these problems assumes that you start fresh with the contract
+as shown above.
 
 6) During debugging, Hardhat allows the developer to display log messages from within the contract code.
 These messages would be removed prior to deployment. Just below the pragma line, add the following import
