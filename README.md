@@ -608,4 +608,4 @@ tx3 = await faucet.connect(Bob).withdraw(4);    // This is 4 wei and not 4 eth
 
 E.10. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of the first require statement. Provide some evidence on your well labelled single pdf. It is OK if this is an error message.
 
-E.11. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of the second require statement. Provide some evidence on your well labelled single pdf. Again, it is OK if this answer is an error message. Hint: You will need to make more than one withdrawals.
+E.11. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of the second require statement. Provide some evidence on your well labelled single pdf. Again, it is OK if this answer is an error message. Hint: You will need to make more than one withdrawal.
