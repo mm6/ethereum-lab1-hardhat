@@ -568,18 +568,21 @@ Hint:  After creating a new project and compiling the contract, enter the Hardha
 You can deploy the contract from the console with:
 
 ```
-     const faucet = await ethers.deployContract("Faucet");
-```
-
-      You can get the address of two accounts with this call:
+const faucet = await ethers.deployContract("Faucet");
 
 ```
-      const [Alice,Bob] = await ethers.getSigners();
+
+You can get the address of two accounts with this call:
+
+```
+const [Alice,Bob] = await ethers.getSigners();
+
 ```
 
-      You can transfer eth from Alice to the contract with this transaction:
+You can transfer eth from Alice to the contract with this transaction:
+
 ```
-      const tx = await Alice.sendTransaction({to:faucet.target, value: ethers.parseEther("1.0")})
+const tx = await Alice.sendTransaction({to:faucet.target, value: ethers.parseEther("1.0")})
 ```
 
 To examine the receipt from the transaction, just enter tx.
