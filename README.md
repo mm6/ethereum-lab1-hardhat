@@ -38,7 +38,7 @@ by client side Hardhat and the server side Hardhat network.
 
 This lab exercise is based partly on the Hardhat tutorial [found here.](https://hardhat.org/tutorial)
 
-The deliverable is a single well labelled pdf file with answers for E.1. through E.11. 
+The deliverable is a single well labelled pdf file with answers for E.1. through E.11.
 
 ## Part 1. Installations
 
@@ -560,15 +560,42 @@ contract Faucet is mortal {
     }
 }
 ```
-E.8. Compile and deploy this contract using Hardhat. Show an interaction demonstrating that eth (not tokens)
-may be transferred to the contract. You will need to do some research to figure out what commands are
-needed to do the transfer. Paste a copy of this interaction onto your labelled single pdf file.
+E.8. Compile and deploy this contract using Hardhat. Show an interaction demonstrating that eth (not tokens) may be transferred to the contract.
 
-E.9. On your well labelled single pdf file, show an interaction where the withdraw transaction succeeds. Provide
-some evidence on your well labelled single pdf.
+     Hint:  After creating a new project and compiling the contract, enter the Hardhat console.
+     You can deploy the contract from the console with:
+```
+     const faucet = await ethers.deployContract("Faucet");
+```
+      You can get the address of two accounts with this call:
+```
+      const [Alice,Bob] = await ethers.getSigners();
+```
+      You can transfer eth from Alice to the contract with this transaction:
+```
+      const tx = await Alice.sendTransaction({to:faucet.target, value: ethers.parseEther("1.0")})
+```
+      To examine the receipt from the transaction, just enter tx.
+
+Paste a copy of the transaction receipt onto your well labelled single pdf.
+
+Note that, in Ethereum, 1 eth = 10^18 wei.
+
+E.9. On your well labelled single pdf file, show an interaction where the withdraw transaction succeeds. Provide a copy of the receipt.
+
+    Hint: For Alice (the first account) to execute a withdrawal, we can enter:
+```
+tx2 = await faucet.withdraw(ethers.parseEther("0.01"))
+```
+    For Bob to make a withdrawal, we need to state that we are working from his account:
+```
+tx4 = await faucet.connect(Bob).withdraw(4);    // This is 4 wei and not 4 eth
+```
 
 E.10. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of
-the first require statement. Provide some evidence on your well labelled single pdf.
+the first require statement. Provide some evidence on your well labelled single pdf. It is OK
+if this is an error message.
 
 E.11. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of
-the second require statement. Provide some evidence on your well labelled single pdf.
+the second require statement. Provide some evidence on your well labelled single pdf. Again, it is
+OK if this answer is an error message.
