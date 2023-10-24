@@ -564,8 +564,8 @@ contract Faucet is mortal {
 ```
 E.8. Study this contract. Compile and deploy this contract using Hardhat. Show an interaction demonstrating that eth (not tokens) may be transferred to the contract.
 
-     Hint:  After creating a new project and compiling the contract, enter the Hardhat console.
-     You can deploy the contract from the console with:
+Hint:  After creating a new project and compiling the contract, enter the Hardhat console.
+You can deploy the contract from the console with:
 
 ```
      const faucet = await ethers.deployContract("Faucet");
@@ -582,7 +582,7 @@ E.8. Study this contract. Compile and deploy this contract using Hardhat. Show a
       const tx = await Alice.sendTransaction({to:faucet.target, value: ethers.parseEther("1.0")})
 ```
 
-      To examine the receipt from the transaction, just enter tx.
+To examine the receipt from the transaction, just enter tx.
 
 Paste a copy of the transaction receipt onto your well labelled single pdf.
 
@@ -590,13 +590,15 @@ Note that, in Ethereum, 1 eth = 10^18 wei. You can see this in the value field o
 
 E.9. On your well labelled single pdf file, show an interaction where the withdraw transaction succeeds. Provide a copy of the receipt.
 
-    Hint: For Alice (the first account) to execute a withdrawal, we can enter:
+Hint: For Alice (the first account) to execute a withdrawal, we can enter:
 
 ```
 tx2 = await faucet.withdraw(ethers.parseEther("0.01"))
 
 ```
-    For Bob to make a withdrawal, we need to state that we are working from his account:
+
+For Bob to make a withdrawal, we need to state that we are working from his account:
+
 ```
 tx3 = await faucet.connect(Bob).withdraw(4);    // This is 4 wei and not 4 eth
 
