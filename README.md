@@ -1,4 +1,4 @@
-## Fall 2023 Blockchain and SQL Fundamentals
+##  Fall 2023 Blockchain and SQL Fundamentals
 ### Carnegie Mellon University MSCF
 ### Due: Wednesday, November 8, 2023 11:59 PM
 ### 10 Points
@@ -7,7 +7,6 @@
 <!--
 #### Arjun Email: abrar@andrew.cmu.edu
 -->
-
 
 **Learning Objectives:** In this lab the student will set up an Ethereum
 development environment (using Node.js and Hardhat) and deploy smart
