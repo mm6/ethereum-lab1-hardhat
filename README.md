@@ -390,6 +390,8 @@ save it, and compile it. Each of these problems assumes that you start fresh wit
 as shown above. You need to include clear labels for each answer and place all of the answers
 on the single .pdf file.
 
+Note: You do not need to study closely the Javascript in the unit test files. Review the code to see what is going on but focus more on the Solidity code. 
+
 E.1. Modify the contract's constructor so that it breaks the "Should show the right owner test".
 Do this by setting the owner's address to 0 at the end of the constructor. Use address(0) in the
 assignment statement.
@@ -560,7 +562,7 @@ contract Faucet is mortal {
     }
 }
 ```
-E.8. Compile and deploy this contract using Hardhat. Show an interaction demonstrating that eth (not tokens) may be transferred to the contract.
+E.8. Study this contract. Compile and deploy this contract using Hardhat. Show an interaction demonstrating that eth (not tokens) may be transferred to the contract.
 
      Hint:  After creating a new project and compiling the contract, enter the Hardhat console.
      You can deploy the contract from the console with:
@@ -579,7 +581,7 @@ E.8. Compile and deploy this contract using Hardhat. Show an interaction demonst
 
 Paste a copy of the transaction receipt onto your well labelled single pdf.
 
-Note that, in Ethereum, 1 eth = 10^18 wei.
+Note that, in Ethereum, 1 eth = 10^18 wei. You can see this in the value field of the transaction receipt.
 
 E.9. On your well labelled single pdf file, show an interaction where the withdraw transaction succeeds. Provide a copy of the receipt.
 
@@ -589,13 +591,9 @@ tx2 = await faucet.withdraw(ethers.parseEther("0.01"))
 ```
     For Bob to make a withdrawal, we need to state that we are working from his account:
 ```
-tx4 = await faucet.connect(Bob).withdraw(4);    // This is 4 wei and not 4 eth
+tx3 = await faucet.connect(Bob).withdraw(4);    // This is 4 wei and not 4 eth
 ```
 
-E.10. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of
-the first require statement. Provide some evidence on your well labelled single pdf. It is OK
-if this is an error message.
+E.10. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of the first require statement. Provide some evidence on your well labelled single pdf. It is OK if this is an error message.
 
-E.11. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of
-the second require statement. Provide some evidence on your well labelled single pdf. Again, it is
-OK if this answer is an error message.
+E.11. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of the second require statement. Provide some evidence on your well labelled single pdf. Again, it is OK if this answer is an error message. Hint: You will need to make more than one withdrawals.
