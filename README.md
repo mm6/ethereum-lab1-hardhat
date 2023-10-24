@@ -390,7 +390,7 @@ save it, and compile it. Each of these problems assumes that you start fresh wit
 as shown above. You need to include clear labels for each answer and place all of the answers
 on the single .pdf file.
 
-Note: You do not need to study closely the Javascript in the unit test files. Review the code to see what is going on but focus more on the Solidity code. 
+Note: You do not need to study closely the Javascript in the unit test files. Review the code to see what is going on but focus more on the Solidity code.
 
 E.1. Modify the contract's constructor so that it breaks the "Should show the right owner test".
 Do this by setting the owner's address to 0 at the end of the constructor. Use address(0) in the
@@ -566,17 +566,22 @@ E.8. Study this contract. Compile and deploy this contract using Hardhat. Show a
 
      Hint:  After creating a new project and compiling the contract, enter the Hardhat console.
      You can deploy the contract from the console with:
+
 ```
      const faucet = await ethers.deployContract("Faucet");
 ```
+
       You can get the address of two accounts with this call:
+
 ```
       const [Alice,Bob] = await ethers.getSigners();
 ```
+
       You can transfer eth from Alice to the contract with this transaction:
 ```
       const tx = await Alice.sendTransaction({to:faucet.target, value: ethers.parseEther("1.0")})
 ```
+
       To examine the receipt from the transaction, just enter tx.
 
 Paste a copy of the transaction receipt onto your well labelled single pdf.
@@ -586,12 +591,15 @@ Note that, in Ethereum, 1 eth = 10^18 wei. You can see this in the value field o
 E.9. On your well labelled single pdf file, show an interaction where the withdraw transaction succeeds. Provide a copy of the receipt.
 
     Hint: For Alice (the first account) to execute a withdrawal, we can enter:
+
 ```
 tx2 = await faucet.withdraw(ethers.parseEther("0.01"))
+
 ```
     For Bob to make a withdrawal, we need to state that we are working from his account:
 ```
 tx3 = await faucet.connect(Bob).withdraw(4);    // This is 4 wei and not 4 eth
+
 ```
 
 E.10. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of the first require statement. Provide some evidence on your well labelled single pdf. It is OK if this is an error message.
