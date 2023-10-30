@@ -437,8 +437,13 @@ the HardhatLab1 directory, enter the following two commands:
 
 ```
 npx hardhat console
+
+```
+
+```
 const hardhatToken = await ethers.deployContract("Token");   // deploy the contract returns undefined
 ```
+
 The library "ethers" provides a set of functions and utilities that allow us to interact with
 the Ethereum blockchain. One of those functions is "deployContract". Here we have used it to
 deploy our token contract.
