@@ -486,7 +486,10 @@ await hardhatToken.transfer(hardhatToken.target,2);
 6) Now, let's find the token balances of ALice, Bob, and the contract:
 ```
 aliceBalance = await hardhatToken.balanceOf(Alice.address)
+```
+```
 bobBalance = await hardhatToken.balanceOf(Bob.address)
+```
 contractBalance = await hardhatToken.balanceOf(hardhatToken.target)
 ```
 7) Note that Alice, Bob, and the contract all have some tokens. Alice should have 999,978.
@@ -494,12 +497,18 @@ Bob should have 20 and the contract should have 2. But these are token balances.
 we would like to know how much eth they have.
 
 This is not a call to the contract but is a call to Ethereum more generally.
+
 ```
 const AliceEthBalance = await ethers.provider.getBalance(Alice.address);
 AliceEthBalance
 
+```
+
+```
 const BobEthBalance = await ethers.provider.getBalance(Bob.address);
 BobEthBalance
+
+```
 
 const contractEthBalance = await ethers.provider.getBalance(hardhatToken.target);
 contractEthBalance
