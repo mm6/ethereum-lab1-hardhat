@@ -487,7 +487,7 @@ await hardhatToken.transfer(Bob.address,20);
 await hardhatToken.transfer(hardhatToken.target,2);
 ```
 
-6) Now, let's find the token balances of ALice, Bob, and the contract:
+6) Now, let's find the token balances of Alice, Bob, and the contract:
 
 ```
 aliceBalance = await hardhatToken.balanceOf(Alice.address)
