@@ -92,10 +92,10 @@ mkdir HardhatLab1
 ```
 cd HardhatLab1
 ```
-Build a package.json file (holding important information about this project) by running the command:
-
+Build a package.json file (holding important information about this project) by running the
+following command. Hit return and take the defaults provided.
 ```
-npm init     hit return and take the defaults provided
+npm init     
 
 ```
 
