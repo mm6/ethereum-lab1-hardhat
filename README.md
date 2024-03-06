@@ -1,6 +1,6 @@
-##  Fall 2023 Blockchain and SQL Fundamentals
-### Carnegie Mellon University MSCF
-### Due: Wednesday, November 8, 2023 11:59 PM
+##  Spring 2024 Developing Blockchain Use Cases
+### Carnegie Mellon University
+### Due to Canvas on Monday, March 18, 2024 11:59 PM
 ### 10 Points
 ### Deliverable: A single .pdf file named Lab1.pdf with clearly labelled answers.
 
