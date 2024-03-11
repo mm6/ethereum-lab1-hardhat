@@ -1,6 +1,6 @@
 ##  Spring 2024 Developing Blockchain Use Cases
 ### Carnegie Mellon University
-### Due to Canvas on Monday, March 18, 2024 11:59 PM
+### Due to Canvas on Monday, March 25, 2024 11:59 PM
 ### 10 Points
 ### Deliverable: A single .pdf file named Lab1.pdf with clearly labelled answers.
 
@@ -65,7 +65,7 @@ python. Use the following command:
 nvm ls-remote
 ```
 
-7. We want to use Node.js version 20.8.1. Use the following command:
+7. We want to use Node.js version 20.8.1 (or, a version close to this). Use the following command:
 
 ```
 nvm install 20
