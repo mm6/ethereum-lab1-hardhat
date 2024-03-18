@@ -538,7 +538,7 @@ balances of eth as well as in tokens.
 In this exercise, we deploy and interact with a contract called Faucet.sol.
 
 ```
-// Blockchain and SQL Fundamentals
+
 // Solidity code Faucet8.sol from Pg. 150 Mastering Ethereum
 // Modified for 5.0 and with comments.
 
