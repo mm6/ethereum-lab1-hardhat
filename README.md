@@ -1,6 +1,6 @@
-##  Spring 2024 Developing Blockchain Use Cases
+##  Fall 2024 Blockchain and SQL Fundamentals
 ### Carnegie Mellon University
-### Due to Canvas on Monday, March 25, 2024 11:59 PM
+### Due to Canvas on Thursday, November 8, 2024 11:59 PM
 ### 10 Points
 ### Deliverable: A single .pdf file named Lab1.pdf with clearly labelled answers.
 
