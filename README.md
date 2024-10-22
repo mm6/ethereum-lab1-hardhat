@@ -1,5 +1,6 @@
-##  Fall 2024 Blockchain and SQL Fundamentals
+##  Fall 2024 Blockchain and SQL Fundamentals 46912, 95827
 ### Carnegie Mellon University
+### Assigned Thursday, October 24, 2024
 ### Due to Canvas on Thursday, November 8, 2024 11:59 PM
 ### 10 Points
 ### Deliverable: A single .pdf file named Lab1.pdf with clearly labelled answers.
