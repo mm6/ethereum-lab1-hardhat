@@ -626,6 +626,9 @@ const receipt = await tx.wait();
 console.log(receipt); // This shows the transaction receipt
 ```
 
+The transaction receipt contains information about the transaction’s execution on the blockchain, including the status (success or failure), block hash, block number, transaction index, gas used, cumulative gas used, logs (events), contract address (if a contract was created), and any events that were emitted.
+
+
 Paste a copy of the transaction receipt onto your well labelled single pdf.
 
 Note that, in Ethereum, 1 eth = 10^18 wei. You can see this in the value field of the transaction receipt.
