@@ -271,6 +271,8 @@ const { expect } = require("chai");
 // We use `loadFixture` to share common setups (or fixtures) between tests.
 // Using this simplifies your tests and makes them run faster, by taking
 // advantage of Hardhat Network's snapshot functionality.
+// The snapshot of the blockchain state is taken just after
+// deployment of the contract and after its constructor is run.
 const {
   loadFixture,
 } = require("@nomicfoundation/hardhat-toolbox/network-helpers");
