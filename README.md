@@ -617,7 +617,12 @@ You can transfer eth from Alice to the contract with this transaction:
 const tx = await Alice.sendTransaction({to:faucet.target, value: ethers.parseEther("1.0")})
 ```
 
-To examine the receipt from the transaction, just enter tx.
+To examine the transaction, just enter tx. This includes details about the transaction that has been sent, such as the transaction hash, sender and recipient addresses, gas price, gas limit, value sent, nonce, and raw transaction data.
+
+To examine the transaction receipt, do the following:
+
+const receipt = await tx.wait();
+console.log(receipt); // This shows the transaction receipt
 
 Paste a copy of the transaction receipt onto your well labelled single pdf.
 
