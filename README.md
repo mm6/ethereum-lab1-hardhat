@@ -621,8 +621,10 @@ To examine the transaction object, just enter tx. This includes details about th
 
 To examine the transaction receipt, do the following:
 
+```
 const receipt = await tx.wait();
 console.log(receipt); // This shows the transaction receipt
+```
 
 Paste a copy of the transaction receipt onto your well labelled single pdf.
 
