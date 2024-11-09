@@ -633,7 +633,7 @@ Paste a copy of the transaction receipt onto your well labelled single pdf.
 
 Note that, in Ethereum, 1 eth = 10^18 wei. You can see this in the value field of the transaction receipt.
 
-E.9. On your well labelled single pdf file, show an interaction where the withdraw transaction succeeds. Provide a copy of the receipt.
+E.9. On your well labelled single pdf file, show an interaction where the withdraw transaction succeeds. Provide a copy of the transaction receipt.
 
 Hint: For Alice (the first account) to execute a withdrawal, we can enter:
 
