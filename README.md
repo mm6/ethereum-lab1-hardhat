@@ -1,7 +1,7 @@
-##  Fall 2024 Blockchain and SQL Fundamentals 46912, 95827
+##  Spring 2025 Developing Blockchain Use Cases
 ### Carnegie Mellon University MSCF
-### Due to Canvas on Thursday, November 7, 2024 11:59 PM
-### Assigned Thursday, October 24, 2024
+### Due to Canvas: TBA
+### Assigned: TBA
 ### 10 Points
 ### Deliverable: A single .pdf file named Lab1.pdf with clearly labelled answers.
 
