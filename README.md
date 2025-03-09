@@ -1,7 +1,7 @@
 ##  Spring 2025 Developing Blockchain Use Cases
-### Carnegie Mellon University MSCF
-### Due to Canvas: TBA
-### Assigned: TBA
+### Carnegie Mellon University
+### Due to Canvas: Wednesday, March 26, 2025
+### Assigned: Wednesday, March 12, 2025
 ### 10 Points
 ### Deliverable: A single .pdf file named Lab1.pdf with clearly labelled answers.
 
@@ -38,7 +38,11 @@ by client side Hardhat and the server side Hardhat network.
 
 This lab exercise is based partly on the Hardhat tutorial [found here.](https://hardhat.org/tutorial)
 
-The deliverable is a single well labelled pdf file with answers for E.1. through E.11.
+The deliverable is a single well labelled pdf file with answers for E.1. through E.13.
+
+**Policy on Using Copilot:**
+
+[Copilot](https://www.cmu.edu/computing/services/ai/copilot/index.html) may be used to help with Part 1 (Installations). Please do not use it on Part 2 (Debugging Exercises) or Part 3 (Using the Interactive Console) or Part 4 (Interacting with Faucet.sol).
 
 ## Part 1. Installations
 
@@ -106,6 +110,8 @@ npm init
 npm install --save-dev hardhat
 
 ```
+Warnings may be ignored.
+
 12. Next, within the HardhatLab1 directory, initialize Hardhat with the Node Package Execute (npx) command:
 
 ```
@@ -145,8 +151,6 @@ contract named Token.sol:
 // It will be used by the Solidity compiler to validate its version.
 pragma solidity ^0.8.0;
 
-
-// This is the main building block for smart contracts.
 contract Token {
     // Some string type variables to identify the token.
     string public name = "My Hardhat Token";
@@ -250,13 +254,14 @@ describe("Token contract", function () {
 ```
 npx hardhat test
 ```
+Take some time and study the contract Token.sol and the testing code in Token.js. Do you understand how the two programs interact?
 
 20. Replace the Token.js test file with the test file below and run
 
 ```
 npx hardhat test
 ```
-again.
+again. Be sure to study the testing code and the way it interacts with the contract.
 
 
 ```
@@ -392,14 +397,14 @@ save it, and compile it. Each of these problems assumes that you start fresh wit
 as shown above. You need to include clear labels for each answer and place all of the answers
 on the single .pdf file.
 
-Note: You do not need to study closely the Javascript in the unit test files. Review the code to see what is going on but focus more on the Solidity code.
+Note: You do not need to study closely the Javascript in the unit test files. Review the Javascript code to see what is going on but focus more on the Solidity code.
 
 E.1. Modify the contract's constructor so that it breaks the "Should show the right owner test".
 Do this by setting the owner's address to 0 at the end of the constructor. Use address(0) in the
 assignment statement.
 
 E.2. Currently, the contract has 1000000 tokens. Set this value to 10 so that it breaks the
-"Should transfer between accounts test".
+"Should transfer tokens between accounts test".
 
 E.3. Comment out the require statement in the transfer function. This should break the "Should fail if
 sender doesn't have enough tokens" test.
@@ -422,7 +427,7 @@ import "hardhat/console.sol";
 Now, add this line at the end of your constructor:
 
 ```
-console.log("The constructor ran.");
+console.log("### The constructor ran. ###");
 ```
 What result do we get when running the tests?
 
@@ -536,16 +541,16 @@ contractEthBalance
 So, we learned the fundamental idea that contracts as well as accounts can have
 balances of eth as well as in tokens.
 
-## Part 4. Final Exercise
+## Part 4. Interacting with Faucet.sol.
 
 In this exercise, we deploy and interact with a contract called Faucet.sol.
 
 ```
 
-// Solidity code Faucet8.sol from Pg. 150 Mastering Ethereum
+// Solidity code Faucet.sol from Pg. 150 Mastering Ethereum
 // Modified for 5.0 and with comments.
 
-pragma solidity ^0.8.0;      // truffle.config can select the compiler version
+pragma solidity ^0.8.0;      // select the compiler version
 
 contract owned {
     address payable owner;
@@ -594,7 +599,7 @@ contract Faucet is mortal {
     }
 }
 ```
-E.8. Study this contract. Compile and deploy this contract using Hardhat. Show an interaction demonstrating that eth (not tokens) may be transferred to the contract.
+E.8. Study this contract. Compile and deploy this contract using Hardhat. You may ignore the compile warnings. Show an interaction demonstrating that eth (not tokens) may be transferred to the contract.
 
 Hint:  After creating a new project and compiling the contract, enter the Hardhat console.
 You can deploy the contract from the console with:
@@ -631,7 +636,7 @@ The transaction receipt contains information about the transaction’s execution
 
 Paste a copy of the transaction receipt onto your well labelled single pdf.
 
-Note that, in Ethereum, 1 eth = 10^18 wei. You can see this in the value field of the transaction receipt.
+Note that, in Ethereum, 1 eth = 10^18 wei. You can see this in the value field of the transaction response.
 
 E.9. On your well labelled single pdf file, show an interaction where the withdraw transaction succeeds. Provide a copy of the transaction receipt.
 
@@ -652,3 +657,7 @@ tx3 = await faucet.connect(Bob).withdraw(4);    // This is 4 wei and not 4 eth
 E.10. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of the first require statement. Provide some evidence on your well labelled single pdf. It is OK if this is an error message.
 
 E.11. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of the second require statement. Provide some evidence on your well labelled single pdf. Again, it is OK if this answer is an error message. Hint: You will need to make more than one withdrawal.
+
+E.12. In the example above, Alice sent 1.0 eth to the Faucet contract. Later, Bob withdrew 4 wei. What happens if Bob tries to withdraw 4 wei from the contract before any eth is added? On your well labelled single pdf file, show the console interaction in Hardhat.
+
+E.13. Modify the Faucet contract so that, after any deposit of eth to the contract, console.log is used to display that a deposit occurred. Have Alice make several deposits. On your well labelled single pdf, show the console interaction in Hardhat.
