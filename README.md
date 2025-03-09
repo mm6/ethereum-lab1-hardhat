@@ -658,6 +658,6 @@ E.10. On your well labelled single pdf file, show an interaction where the withd
 
 E.11. On your well labelled single pdf file, show an interaction where the withdraw transaction fails because of the second require statement. Provide some evidence on your well labelled single pdf. Again, it is OK if this answer is an error message. Hint: You will need to make more than one withdrawal.
 
-E.12. In the example above, Alice sent 1.0 eth to the Faucet contract. Later, Bob withdrew 4 wei. What happens if Bob tries to withdraw 4 wei from the contract before any eth is added? On your well labelled single pdf file, show the console interaction in Hardhat.
+E.12. In the example above, Alice sent 1.0 eth to the Faucet contract. Later, Bob withdrew 4 wei. What happens if Bob tries to withdraw 4 wei from the contract before any eth is added? You should do this test after running a new console. On your well labelled single pdf file, show the console interaction in Hardhat.
 
-E.13. Modify the Faucet contract so that, after any deposit of eth to the contract, console.log is used to display that a deposit occurred. Have Alice make several deposits. On your well labelled single pdf, show the console interaction in Hardhat.
+E.13. Modify the Faucet contract so that, after any deposit of eth to the contract, console.log is used to display that a deposit occurred. In a new run of the console, have Alice make several deposits. On your well labelled single pdf, show the console interaction in Hardhat.
