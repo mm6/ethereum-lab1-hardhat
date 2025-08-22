@@ -1,7 +1,7 @@
-##  Spring 2025 Developing Blockchain Use Cases
+##  Fall 2025 Blockchain and SQL
 ### Carnegie Mellon University
-### Due to Canvas: Wednesday, March 26, 2025
-### Assigned: Wednesday, March 12, 2025
+### Due to Canvas: Thursday, September 11, 2025
+### Assigned: Thursday, August 28, 2025
 ### 10 Points
 ### Deliverable: A single .pdf file named Lab1.pdf with clearly labelled answers.
 
