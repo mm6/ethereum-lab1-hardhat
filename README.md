@@ -254,7 +254,7 @@ describe("Token contract", function () {
 ```
 npx hardhat test
 ```
-The testing code (Toking.js) only makes a single test. You should see that 1 test passing.
+The testing code (Toking.js) only makes a single test. You should see that one test passed.
 
 Take some time and study the contract Token.sol and the testing code in Token.js. Do you understand how the two programs interact?
 
