@@ -73,9 +73,9 @@ nvm ls-remote
 7. We want to use Node.js version 20.8.1 (or, a version close to this). Use the following command:
 
 ```
-nvm install 20
-nvm use 20
-Now using node v20.8.1 (npm v10.2.1)
+nvm install 22
+nvm use 22
+Now using node v20.18.0 (npm v10.9.3)
 
 ```
 
@@ -83,7 +83,7 @@ Now using node v20.8.1 (npm v10.2.1)
 
 ```
 node --version
-v20.8.1
+v22.18.0
 ```
 
 9. Create a new project directory named HardhatLab1.
@@ -107,7 +107,7 @@ npm init
 11. Now, within the HardhatLab1 directory, install hardhat:
 
 ```
-npm install --save-dev hardhat
+npm install --save-dev hardhat@^2.14.0
 
 ```
 Warnings may be ignored.
@@ -115,18 +115,18 @@ Warnings may be ignored.
 12. Next, within the HardhatLab1 directory, initialize Hardhat with the Node Package Execute (npx) command:
 
 ```
-npx hardhat init
+npx hardhat
+
 ```
+
+We are using Hardhat2. It is stable and widely used. Most tutorials, plugins, and documentation are based on this version
+It is ideal for production projects or learning with well-established tooling
 
 You will need to select "Create an empty hardhat.config.js".
 
-13. The npx command creates a hardhat.config.js. In addition, if you are asked to do so,
-run the following npm command.
+The deprecation warning may be ignored.
 
-```
-npm install --save-dev "hardhat@^2.18.2"
-
-```
+13. The npx command creates a hardhat.config.js file.
 
 14. Within the project directory, install the Hardhat toolbox:
 
@@ -254,6 +254,8 @@ describe("Token contract", function () {
 ```
 npx hardhat test
 ```
+The testing code (Toking.js) only makes a single test. You should see that 1 test passing.
+
 Take some time and study the contract Token.sol and the testing code in Token.js. Do you understand how the two programs interact?
 
 20. Replace the Token.js test file with the test file below and run
@@ -261,7 +263,7 @@ Take some time and study the contract Token.sol and the testing code in Token.js
 ```
 npx hardhat test
 ```
-again. Be sure to study the testing code and the way it interacts with the contract.
+again. Be sure to study the testing code and the way it interacts with the contract. You should have 5 passing tests.
 
 
 ```
