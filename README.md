@@ -75,7 +75,7 @@ nvm ls-remote
 ```
 nvm install 22
 nvm use 22
-Now using node v20.18.0 (npm v10.9.3)
+Now using node v22.18.0 (npm v10.9.3)
 
 ```
 
