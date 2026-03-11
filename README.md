@@ -1,7 +1,7 @@
-##  Fall 2025 Blockchain and SQL
+##  Spring 2026 Mini 4 Developing Blockchain Use Cases
 ### Carnegie Mellon University
-### Due to Canvas: Wednesday, September 10, 2025
-### Assigned: Thursday, August 28, 2025
+### Due to Canvas: Monday, March 23, 2026
+### Assigned: Wednesday, March 11, 2026
 ### 10 Points
 ### Deliverable: A single .pdf file named Lab1.pdf with clearly labelled answers.
 
@@ -396,8 +396,7 @@ describe("Token contract", function () {
 In this set of exercises, we spend some time making intentional errors in our smart contract to
 see how the errors are handled by the testing code. In each case, you will edit the contract,
 save it, and compile it. Each of these problems assumes that you start fresh with the contract
-as shown above. You need to include clear labels for each answer and place all of the answers
-on the single .pdf file.
+as shown above. You need to include clear labels for each answer and place all of the answers on the single .pdf file. You must copy and paste from the terminal showing the answer.
 
 Note: You do not need to study closely the Javascript in the unit test files. Review the Javascript code to see what is going on but focus more on the Solidity code.
 
