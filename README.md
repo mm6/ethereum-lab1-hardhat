@@ -131,7 +131,7 @@ The deprecation warning may be ignored.
 14. Within the project directory, install the Hardhat toolbox:
 
 ```
-npm install --save-dev @nomicfoundation/hardhat-toolbox
+npm install --save-dev "@nomicfoundation/hardhat-toolbox@hh2"
 
 ```
 15. We need access to that toolbox. Edit your hardhat.config.js file and include this line
